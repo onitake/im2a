@@ -438,7 +438,8 @@ void im2a::Asciifier::print_char(char c, int color_index)
     }
 }
 
-void im2a::Asciifier::print_pixel(int color_index1, int color_index2, int prev_color1, int prev_color2) {
+void im2a::Asciifier::print_pixel(int color_index1, int color_index2, int prev_color1, int prev_color2)
+{
     if (color_index1 != prev_color1) {
         std::cout << "\x1b[48;5;" << color_index1 << "m";
     }
