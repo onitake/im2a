@@ -355,6 +355,8 @@ void im2a::Asciifier::asciify()
                 int char_index = buffer[offset * 2];
                 int color_index = buffer[offset * 2 + 1];
                 print_char(charset[char_index % charset_len], color_index);
+                print_char(charset[char_index % charset_len], color_index, prev_color);
+                prev_color = color_index;
             }
         }
 
@@ -424,7 +426,7 @@ void im2a::Asciifier::print_footer()
     }
 }
 
-void im2a::Asciifier::print_char(char c, int color_index)
+void im2a::Asciifier::print_char(char c, int color_index, int prev_color)
 {
     if (_options->html()) {
         if (_options->grayscale()) {
